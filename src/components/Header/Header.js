@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa";
 
@@ -7,7 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="bg-slate-100 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
@@ -22,42 +22,63 @@ const Header = () => {
         </Link>
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
-            <Link
+            <NavLink
               to="/home"
+              className={({ isActive }) => isActive ?
+              "lg:mr-6 font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
+               : 
+                "lg:mr-6 font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            }
               aria-label="Home"
               title="Home"
-              className="lg:mr-5 font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/courses"
+              className={({ isActive }) => isActive ?
+              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
+               : 
+                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            }
               aria-label="Courses"
               title="Courses"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              
             >
               Courses
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/faq"
+              className={({ isActive }) => isActive ?
+              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
+               : 
+                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            }
               aria-label="FAQ"
               title="FAQ"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+             
             >
               FAQ
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="/blog"
+              className={({ isActive }) => isActive ?
+              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
+               : 
+                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            }
               aria-label="Blog"
               title="Blog"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              
+            
             >
               Blog
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -136,44 +157,60 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <Link
+                      <NavLink
                         to="/home"
                         aria-label="Home"
                         title="Home"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className={({isActive}) => isActive ? 
+                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        :
+                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    }
                       >
                         Home
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/courses"
                         aria-label="Courses"
                         title="Courses"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className={({isActive}) => isActive ? 
+                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        :
+                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    }
                       >
                         Courses
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/faq"
                         aria-label="FAQ"
                         title="FAQ"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className={({isActive}) => isActive ? 
+                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        :
+                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    }
                       >
                         FAQ
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/blog"
                         aria-label="Blog"
                         title="Blog"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className={({isActive}) => isActive ? 
+                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        :
+                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    }
                       >
                         Blog
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
                       <Link

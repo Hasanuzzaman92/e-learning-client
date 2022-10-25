@@ -8,8 +8,8 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div class="w-[90%] mx-auto flex flex-col md:flex-row">
-                <div class="flex-none ">
+            <div class=" w-full lg:ml-10 flex flex-col md:flex-row">
+                <div class="flex-none bg-rose-300">
                    <SideNav></SideNav>
                 </div>
                 <div class="grow">
