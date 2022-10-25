@@ -69,7 +69,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div>
+        <div className='text-center'>
           <span className="text-base font-bold tracking-wide text-gray-900">
             Social
           </span>

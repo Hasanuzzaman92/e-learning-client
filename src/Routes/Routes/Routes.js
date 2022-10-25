@@ -4,6 +4,8 @@ import Blog from "../../components/Shared/Blog/Blog";
 import Courses from "../../components/Shared/Courses/Courses";
 import FAQ from "../../components/Shared/FAQ/FAQ";
 import Home from "../../components/Shared/Home/Home";
+import Login from "../../components/Shared/Login/Login";
+import Register from "../../components/Shared/Register/Register";
 import Main from "../../Layouts/Main";
 
 export const routes = createBrowserRouter([
@@ -31,6 +33,14 @@ export const routes = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
             }
         ]
     }
