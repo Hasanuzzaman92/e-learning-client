@@ -51,6 +51,11 @@ const Login = () => {
                       Login
                     </button>
                   </div>
+                  <div className="btn-group btn-group-vertical w-full my-10">
+                    <button className="btn btn-outline btn-error">Login with google</button>
+                    <button className="btn btn-outline btn-error">Login with github</button>
+                    
+                  </div>
                   <p className="text-xs text-red-600 sm:text-sm">
                     Haven't any account? {' '}
                     <span className='underline'><Link to='/register'>Register Now</Link></span>

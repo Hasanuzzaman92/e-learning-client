@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+
 
 const FAQ = () => {
     return (
         <div>
-            <h2>This is FAQ page</h2>
+            
         </div>
     );
 };

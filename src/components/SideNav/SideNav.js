@@ -9,7 +9,7 @@ const SideNav = () => {
         .then(data => setCourses(data))
     },[])
     return (
-        <div className='mr-10  p-5'>
+        <div className='p-10'>
             {
                 courses.map(course => <p
                     className='px-4 py-2 font-semibold no-underline text-xl border-b-2 border-white text-center'
