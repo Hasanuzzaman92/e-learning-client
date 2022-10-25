@@ -6,19 +6,19 @@ const Footer = () => {
     return (
     <div className="px-4 bg-slate-400 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="sm:col-span-2">
-          <a
-            href="/"
+        <div className="sm:col-span-2 w-[80%] mx-auto">
+          <Link
+            to="/"
             aria-label="Go home"
             title="Company"
-            className="inline-flex items-center"
+            className="inline-flex items-center justify-center"
           >
-            <img className='w-1/4' src={logo} alt="" />
+            <img className='w-[25%]' src={logo} alt="" />
             <span className="ml-2 text-xl font-bold tracking-wide text-rose-400 uppercase">
             e-learning
           </span>
-          </a>
-          <div className="mt-6 lg:max-w-sm">
+          </Link>
+          <div className="mt-6 lg:max-w-sm text-center">
             <p className="text-sm text-gray-800">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam.
@@ -29,8 +29,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="space-y-2 text-sm ">
-          <p className="text-base font-bold tracking-wide text-gray-900">
+        <div className="space-y-2 text-sm w-[90%] text-center">
+          <p className="text-base font-bold tracking-wide text-gray-900 w-[50%] text-center">
             Contacts
           </p>
           <div className="flex">

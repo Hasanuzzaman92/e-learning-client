@@ -23,6 +23,14 @@ const Header = () => {
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
             <Link
+              to="/home"
+              aria-label="Home"
+              title="Home"
+              className="lg:mr-5 font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            >
+              Home
+            </Link>
+            <Link
               to="/courses"
               aria-label="Courses"
               title="Courses"
@@ -127,6 +135,16 @@ const Header = () => {
                 </div>
                 <nav>
                   <ul className="space-y-4">
+                    <li>
+                      <Link
+                        to="/home"
+                        aria-label="Home"
+                        title="Home"
+                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      >
+                        Home
+                      </Link>
+                    </li>
                     <li>
                       <Link
                         to="/courses"
