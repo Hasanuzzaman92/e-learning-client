@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div className="bg-slate-100 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -24,27 +32,25 @@ const Header = () => {
           <li>
             <NavLink
               to="/home"
-              className={({ isActive }) => isActive ?
-              "lg:mr-6 font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
-               : 
-                "lg:mr-6 font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            }
+              className={({ isActive }) =>
+                isActive
+                  ? "lg:mr-6 font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  : "lg:mr-6 font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              }
               aria-label="Home"
               title="Home"
-              
             >
               Home
             </NavLink>
             <NavLink
               to="/courses"
-              className={({ isActive }) => isActive ?
-              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
-               : 
-                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            }
+              className={({ isActive }) =>
+                isActive
+                  ? " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  : " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              }
               aria-label="Courses"
               title="Courses"
-              
             >
               Courses
             </NavLink>
@@ -52,14 +58,13 @@ const Header = () => {
           <li>
             <NavLink
               to="/faq"
-              className={({ isActive }) => isActive ?
-              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
-               : 
-                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            }
+              className={({ isActive }) =>
+                isActive
+                  ? " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  : " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              }
               aria-label="FAQ"
               title="FAQ"
-             
             >
               FAQ
             </NavLink>
@@ -67,15 +72,13 @@ const Header = () => {
           <li>
             <NavLink
               to="/blog"
-              className={({ isActive }) => isActive ?
-              " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400" 
-               : 
-                " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            }
+              className={({ isActive }) =>
+                isActive
+                  ? " font-bold tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  : " font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              }
               aria-label="Blog"
               title="Blog"
-              
-            
             >
               Blog
             </NavLink>
@@ -91,20 +94,46 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/login"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Login
-            </Link>
+            {user?.uid ? (
+              <Link
+                onClick={handleLogOut}
+                to=""
+                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+              >
+                LogOut
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="font-medium mr-5 tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </li>
           <li>
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center w-5 tracking-wide transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-            >
-              <FaUser></FaUser>
-            </Link>
+            {user?.photoURL ? (
+              <img
+                className="h-[30px] rounded-full cursor-pointer"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <Link
+                href="/"
+                className="inline-flex items-center justify-center w-5 tracking-wide transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+              >
+                <FaUser></FaUser>
+              </Link>
+            )}
           </li>
         </ul>
         <div className="lg:hidden">
@@ -169,11 +198,11 @@ const Header = () => {
                         to="/home"
                         aria-label="Home"
                         title="Home"
-                        className={({isActive}) => isActive ? 
-                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                        :
-                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                    }
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        }
                       >
                         Home
                       </NavLink>
@@ -183,11 +212,11 @@ const Header = () => {
                         to="/courses"
                         aria-label="Courses"
                         title="Courses"
-                        className={({isActive}) => isActive ? 
-                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                        :
-                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                    }
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        }
                       >
                         Courses
                       </NavLink>
@@ -197,11 +226,11 @@ const Header = () => {
                         to="/faq"
                         aria-label="FAQ"
                         title="FAQ"
-                        className={({isActive}) => isActive ? 
-                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                        :
-                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                    }
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        }
                       >
                         FAQ
                       </NavLink>
@@ -211,11 +240,11 @@ const Header = () => {
                         to="/blog"
                         aria-label="Blog"
                         title="Blog"
-                        className={({isActive}) => isActive ? 
-                        'font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                        :
-                        'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                    }
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-medium tracking-wide text-rose-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        }
                       >
                         Blog
                       </NavLink>
@@ -229,12 +258,46 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href="/"
-                        className="inline-flex items-center justify-center w-5 tracking-wide transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      >
-                        <FaUser></FaUser>
-                      </Link>
+                      {user?.uid ? (
+                        <Link
+                          onClick={handleLogOut}
+                          to=""
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                          LogOut
+                        </Link>
+                      ) : (
+                        <>
+                          <Link
+                            to="/login"
+                            className="font-medium mr-5 tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Login
+                          </Link>
+                          <Link
+                            to="/register"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Register
+                          </Link>
+                        </>
+                      )}
+                    </li>
+                    <li>
+                      {user?.photoURL ? (
+                        <img
+                          className="h-[30px] rounded-full"
+                          src={user?.photoURL}
+                          alt=""
+                        />
+                      ) : (
+                        <Link
+                          href="/"
+                          className="inline-flex items-center justify-center w-5 tracking-wide transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                        >
+                          <FaUser></FaUser>
+                        </Link>
+                      )}
                     </li>
                   </ul>
                 </nav>
