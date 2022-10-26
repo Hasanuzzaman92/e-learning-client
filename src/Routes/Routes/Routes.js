@@ -9,6 +9,7 @@ import Home from "../../components/Shared/Home/Home";
 import Login from "../../components/Shared/Login/Login";
 import Register from "../../components/Shared/Register/Register";
 import Main from "../../Layouts/Main";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
