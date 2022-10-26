@@ -15,7 +15,7 @@ const SideNav = () => {
                     className='px-4 py-2 font-semibold no-underline text-xl border-b-2 border-white text-center'
                     key={course.id}
                 >
-                    <Link>{course.name}</Link>
+                    <Link to={`/course/${course.id}`}>{course.name}</Link>
                 </p>)
             }
         </div>
