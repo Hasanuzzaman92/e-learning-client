@@ -43,7 +43,8 @@ export const routes = createBrowserRouter([
                 element:<Blog></Blog>
             },
             {
-                path:'/checkout',
+                path:'/checkout/:id',
+                loader: ({params}) => fetch(`https://e-learning-server.vercel.app/course/${params.id}`),
                 element:<Checkout></Checkout>
             },
             {

@@ -13,8 +13,8 @@ const CourseDetails = () => {
         </h2>
         <FaDownload className="text-4xl cursor-pointer"></FaDownload>
       </div>
-      <figure>
-        <img className="w-full" src={img} alt="" />
+      <figure className="mt-10 ">
+        <img className="w-[80%] mx-auto" src={img} alt="" />
       </figure>
       <p className="text-justify my-8">{desc}</p>
       <div className="flex justify-between">
@@ -25,7 +25,7 @@ const CourseDetails = () => {
         </p>
       </div>
       <div className="mt-10 text-center">
-        <Link to='/checkout'> <button className="btn btn-outline btn-error">Get Premium Access</button> </Link>
+        <Link to={`/checkout/${id}`}> <button className="btn btn-outline btn-error">Get Premium Access</button> </Link>
       </div>
     </div>
   );

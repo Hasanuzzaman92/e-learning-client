@@ -12,12 +12,12 @@ const Course = ({ course }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <div className="flex">
-            <p> Price : ${price}</p>
+            <p className="text-rose-500 font-medium"> Price : ${price}</p>
             <p className="flex items-center justify-end"><FaStar></FaStar> <span className="ml-2">{rating}</span></p>
 
         </div>
         <div className="card-actions justify-between mt-4">
-          <button className="btn btn-outline btn-error">Buy Now</button>
+          <Link to='/register'> <button className="btn btn-outline btn-error">Buy Now</button></Link>
           <Link to={`/course/${id}`}><button className="btn btn-outline btn-success">Details</button></Link>
         </div>
       </div>
