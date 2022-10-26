@@ -44,6 +44,15 @@ const Login = () => {
     }
 
 
+    const handleGoogleSignIn = () => {
+      providerLogin(googleProvider)
+          .then(result => {
+              const user = result.user;
+              console.log(user);
+              toast.success('Google log in success')
+          })
+          .catch(error => console.error(error))
+  }
 
   return (
     <div className="w-[80%] flex justify-center my-10 sm:ml-10">
