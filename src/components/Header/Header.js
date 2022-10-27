@@ -16,9 +16,7 @@ const Header = () => {
   };
 
 
-  // const handleTheme = () =>{
-  //   setTheme( theme ? 'Dark Theme': 'Light Theme')
-  // }
+  
 
   
 
@@ -99,7 +97,7 @@ const Header = () => {
               onClick={() => setTheme(!theme)}
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              {theme ? 'Dark Theme' : 'Light Theme'}
+              {theme ? 'Light Theme' : 'Dark Theme'}
             </Link>
           </li>
           <li>
