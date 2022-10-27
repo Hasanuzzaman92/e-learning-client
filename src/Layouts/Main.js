@@ -8,11 +8,11 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div class=" w-full lg:ml-10 flex flex-col md:flex-row">
-                <div class="flex-none bg-rose-300">
+            <div className=" w-full lg:ml-10 flex flex-col md:flex-row">
+                <div className="flex-none bg-rose-300">
                    <SideNav></SideNav>
                 </div>
-                <div class="grow">
+                <div className="grow">
                     <Outlet></Outlet>
                 </div>
             </div>

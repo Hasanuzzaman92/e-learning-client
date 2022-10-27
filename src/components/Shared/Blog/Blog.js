@@ -42,13 +42,13 @@ const Item = ({ title, children }) => {
 
 const Blog = () => {
   return (
-    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
-        <div class="flex flex-col mb-16 sm:text-center">
-          <a href="/" class="mb-6 sm:mx-auto">
-            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
+    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
+        <div className="flex flex-col mb-16 sm:text-center">
+          <a href="/" className="mb-6 sm:mx-auto">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
               <svg
-                class="w-10 h-10 text-deep-purple-accent-400"
+                className="w-10 h-10 text-deep-purple-accent-400"
                 stroke="currentColor"
                 viewBox="0 0 52 52"
               >
@@ -62,14 +62,14 @@ const Blog = () => {
               </svg>
             </div>
           </a>
-          <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
-            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
               
               Some question's answer
             </h2>
           </div>
         </div>
-        <div class="space-y-4">
+        <div className="space-y-4">
           <Item title="What is cors?">
           CORS stands for Cross-Origin Resource Sharing . It allows us to relax the security applied to an API. This is done by bypassing the Access-Control-Allow-Origin headers, which specify which origins can access the API.
           </Item>

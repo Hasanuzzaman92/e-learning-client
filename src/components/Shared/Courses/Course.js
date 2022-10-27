@@ -17,7 +17,7 @@ const Course = ({ course }) => {
 
         </div>
         <div className="card-actions justify-between mt-4">
-          <Link to='/register'> <button className="btn btn-outline btn-error">Buy Now</button></Link>
+          <Link to={`/checkout/${id}`}> <button className="btn btn-outline btn-error">Buy Now</button></Link>
           <Link to={`/course/${id}`}><button className="btn btn-outline btn-success">Details</button></Link>
         </div>
       </div>

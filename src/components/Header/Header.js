@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const [theme, setTheme] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
@@ -13,6 +14,13 @@ const Header = () => {
       .then(() => {})
       .catch((error) => console.error(error));
   };
+
+
+  // const handleTheme = () =>{
+  //   setTheme( theme ? 'Dark Theme': 'Light Theme')
+  // }
+
+  
 
   return (
     <div className="bg-slate-100 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -88,9 +96,10 @@ const Header = () => {
           <li>
             <Link
               href="/"
+              onClick={() => setTheme(!theme)}
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              Light theme
+              {theme ? 'Dark Theme' : 'Light Theme'}
             </Link>
           </li>
           <li>

@@ -2,14 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import toast from 'react-hot-toast'
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-
-  const [error, setError] = useState('');
+    const [error, setError] = useState('');
     const { signIn, setLoading, providerLogin } = useContext(AuthContext);
 
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -49,7 +50,19 @@ const Login = () => {
           .then(result => {
               const user = result.user;
               console.log(user);
+              navigate(from, {replace: true});
               toast.success('Google log in success')
+          })
+          .catch(error => console.error(error))
+  }
+
+    const handleGithubSignIn = () => {
+      providerLogin(githubProvider)
+          .then(result => {
+              const user = result.user;
+              console.log(user);
+              navigate(from, {replace: true});
+              toast.success('Github log in success')
           })
           .catch(error => console.error(error))
   }
@@ -113,7 +126,7 @@ const Login = () => {
             <button onClick={handleGoogleSignIn} className="btn btn-outline btn-error">
               Login with google
             </button>
-            <button className="btn btn-outline btn-error">
+            <button onClick={handleGithubSignIn} className="btn btn-outline btn-error">
               Login with github
             </button>
           </div>

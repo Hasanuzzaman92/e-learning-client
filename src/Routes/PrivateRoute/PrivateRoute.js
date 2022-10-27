@@ -1,4 +1,4 @@
-/* import React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return  <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+        return  <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>
     }
 
     if(!user){
@@ -17,4 +17,4 @@ const PrivateRoute = ({children}) => {
     return children;
 };
 
-export default PrivateRoute; */
+export default PrivateRoute;
