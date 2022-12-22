@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
@@ -97,7 +99,7 @@ const Header = () => {
               onClick={() => setTheme(!theme)}
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              {theme ? 'Light Theme' : 'Dark Theme'}
+              {theme ? <FaSun></FaSun> : <FaMoon></FaMoon>}
             </Link>
           </li>
           <li>
@@ -259,9 +261,10 @@ const Header = () => {
                     <li>
                       <Link
                         href="/"
+                        onClick={() => setTheme(!theme)}
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
-                        Light theme
+                       {theme ? <FaSun></FaSun> : <FaMoon></FaMoon>}
                       </Link>
                     </li>
                     <li>
